@@ -10,7 +10,8 @@ def ShoutText(text):
 
 
 
-# Using read lines()
+# This gives us what form to look at, for example in this case it is tk1: 
+#file1 = open('tk1.txt', 'r')
 file1 = open('tk1.txt', 'r')
 Lines = file1.readlines()
 
