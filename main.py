@@ -11,7 +11,7 @@ def ShoutText(text):
 
 
 # Using read lines()
-file1 = open('kmg.txt', 'r')
+file1 = open('tk1.txt', 'r')
 Lines = file1.readlines()
 
 count = 0
