@@ -1,25 +1,57 @@
+import os
 import pyttsx3
 
-def ShoutText(text):
+def speak_text(text: str) -> None:
+    """Speak and print a line of text."""
     engine = pyttsx3.init()
     engine.say(text)
     print(text)
     engine.runAndWait()
     engine.stop()
-    return
 
+def list_available_forms(forms_dir: str) -> list[str]:
+    """Return a sorted list of .txt form filenames in the forms directory."""
+    return sorted(f for f in os.listdir(forms_dir) if f.endswith(".txt"))
 
+def choose_form(forms: list[str]) -> str:
+    """Prompt the user to choose a form from the available list."""
+    print("\nAvailable Forms:")
+    for idx, filename in enumerate(forms, start=1):
+        form_name = os.path.splitext(filename)[0]  # removes '.txt'
+        print(f"{idx}. {form_name}")
 
-""" This gives us what form to look at, for example in this case it is tk1: 
-file1 = open('tk1.txt', 'r')
-"""
+    while True:
+        choice = input("\nEnter the number of the form you want to practice: ")
+        if choice.isdigit() and 1 <= int(choice) <= len(forms):
+            return forms[int(choice) - 1]
+        print("Invalid choice. Please enter a valid number.")
 
-file1 = open('tk1.txt', 'r')
-Lines = file1.readlines()
+def read_form(filepath: str) -> None:
+    """Read the selected form and speak each line."""
+    with open(filepath, "r") as file:
+        for count, line in enumerate(file, start=1):
+            cleaned = line.strip()
+            speak_text(cleaned)
+            print(f"Line {count}: {cleaned}")
 
-count = 0
-# Strips the newline character
-for line in Lines:
-    count += 1
-    ShoutText(line.strip())
-    print("Line{}: {}".format(count, line.strip()))
+def main():
+    forms_dir = "forms"
+
+    if not os.path.exists(forms_dir):
+        print("Error: 'forms' directory not found.")
+        return
+
+    forms = list_available_forms(forms_dir)
+
+    if not forms:
+        print("No form files found in the 'forms' directory.")
+        return
+
+    selected_form = choose_form(forms)
+    form_path = os.path.join(forms_dir, selected_form)
+
+    print(f"\nStarting form: {os.path.splitext(selected_form)[0]}\n")
+    read_form(form_path)
+
+if __name__ == "__main__":
+    main()
