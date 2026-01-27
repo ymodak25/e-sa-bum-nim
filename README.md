@@ -1,9 +1,3 @@
-That’s a powerful origin story, Yash — and it elevates your project from “a cool script” to “a meaningful, self‑driven solution born from resilience.” Colleges love that combination of personal challenge, reflection, and initiative. The key is to weave your story into the README in a way that feels authentic and motivating without turning it into an essay.
-
-Here’s a polished version of the README that incorporates your journey in a crisp, professional tone while still carrying emotional weight.
-
----
-
 # **E‑Sa‑Bum‑Nim 🥋**  
 *A Python‑powered Taekwondo form reader and training companion*
 
