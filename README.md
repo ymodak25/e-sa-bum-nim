@@ -1,7 +1,7 @@
 ---
 
-# **E‑Sa‑Bum‑Nim 🥋**  
-*A Python‑powered Taekwondo form reader and training companion*
+# "E‑Sa‑Bum‑Nim 🥋"
+### A Python‑powered Taekwondo form reader and training companion
 
 ## **Overview**
 E‑Sa‑Bum‑Nim is a Python‑based tool that reads out Taekwondo forms step‑by‑step, helping practitioners train independently, reinforce memory, and build confidence. It acts as a digital instructor — always ready to guide you through poomsae with clarity and consistency.
