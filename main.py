@@ -2,7 +2,6 @@ import os
 import pyttsx3
 
 def speak_text(text: str) -> None:
-    """Speak and print a line of text."""
     engine = pyttsx3.init()
     engine.say(text)
     print(text)
@@ -10,14 +9,12 @@ def speak_text(text: str) -> None:
     engine.stop()
 
 def list_available_forms(forms_dir: str) -> list[str]:
-    """Return a sorted list of .txt form filenames in the forms directory."""
     return sorted(f for f in os.listdir(forms_dir) if f.endswith(".txt"))
 
 def choose_form(forms: list[str]) -> str:
-    """Prompt the user to choose a form from the available list."""
     print("\nAvailable Forms:")
     for idx, filename in enumerate(forms, start=1):
-        form_name = os.path.splitext(filename)[0]  # removes '.txt'
+        form_name = os.path.splitext(filename)[0]
         print(f"{idx}. {form_name}")
 
     while True:
@@ -27,7 +24,6 @@ def choose_form(forms: list[str]) -> str:
         print("Invalid choice. Please enter a valid number.")
 
 def read_form(filepath: str) -> None:
-    """Read the selected form and speak each line."""
     with open(filepath, "r") as file:
         for count, line in enumerate(file, start=1):
             cleaned = line.strip()
@@ -35,6 +31,19 @@ def read_form(filepath: str) -> None:
             print(f"Line {count}: {cleaned}")
 
 def main():
+    # --- NEW: Ask user for a file path first ---
+    user_path = input("Enter a file path, or press Enter to choose from the forms folder: ").strip()
+
+    if user_path:
+        if os.path.exists(user_path):
+            print(f"\nStarting form: {os.path.splitext(os.path.basename(user_path))[0]}\n")
+            read_form(user_path)
+            return
+        else:
+            print(f"Error: File '{user_path}' not found.")
+            return
+
+    # --- ORIGINAL BEHAVIOR ---
     forms_dir = "forms"
 
     if not os.path.exists(forms_dir):
