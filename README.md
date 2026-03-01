@@ -74,7 +74,35 @@ Place `.txt` files inside the `forms/` directory, then press Enter to select fro
 Suggestions and contributions are welcome. Feel free to open an issue or submit a pull request.
 
 ---
+## E‑Sa‑Bum‑Nim Change‑Log
 
+### September - 2023
+- I was informed that I had failed my 2nd Dan test due to forgetting complex sequences in my forms (Taegeuk & Chung Moo).
+
+---
+
+### October - 2023
+- First copy of the Python script was born. It was a simple read‑out, line‑by‑line of a form with instructions. After some tweaking, I perfected the second wait between steps.
+- Watched video after video and perfected the scripts (instructions of forms) for all 15 forms (up to Taebaek).
+
+---
+
+### November - 2023
+- Re‑tested and passed the 2nd Dan exam.
+
+---
+
+### September - 2025
+- Added new forms for the 3rd Dan test. Testing was smooth thanks to E‑Sa‑Bum‑Nim.
+
+---
+
+### January - 2026
+- With the advent of AI, polished and improved the Python script.
+
+---
+
+---
 ## License
 
 This project is released under the MIT License.
